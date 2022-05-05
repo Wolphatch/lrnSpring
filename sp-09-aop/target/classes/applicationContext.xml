@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+    http://www.springframework.org/schema/aop
+    http://www.springframework.org/schema/aop/spring-aop-3.0.xsd">
+
+    <bean id="userService" class="com.zac.service.UserServiceImpl"/>
+
+    <bean id="log" class="com.zac.log.Log"/>
+
+    <bean id="afterLog" class="com.zac.log.AfterLog"/>
+
+    <!--方法一，使用原生spring api接口-->
+<!--    <aop:config>-->
+<!--        &lt;!&ndash;切入点expression 表达式, execution (要执行的位置)&ndash;&gt;-->
+<!--        <aop:pointcut id="pointcut" expression="execution(* com.zac.service.UserServiceImpl.*(..))"/>-->
+<!--        &lt;!&ndash;执行环绕增加. 将log这个方法在UserServiceImpl切入点（旗下所有的方法）执行&ndash;&gt;-->
+<!--        &lt;!&ndash;这样的话，所有的UserServiceImpl下的方法都可以执行log和afterlog&ndash;&gt;-->
+<!--        <aop:advisor advice-ref="log" pointcut-ref="pointcut"/>-->
+<!--        <aop:advisor advice-ref="afterLog" pointcut-ref="pointcut"/>-->
+<!--    </aop:config>-->
+<!--    -->
+
+<!--    &lt;!&ndash;方法二， 自定义类&ndash;&gt;-->
+<!--    <bean id="diy" class="com.zac.diy.DiyPointcut"></bean>-->
+<!--    <aop:config>-->
+<!--        &lt;!&ndash;自定义aspect，ref要引用的类&ndash;&gt;-->
+<!--        <aop:aspect ref="diy">-->
+<!--            &lt;!&ndash;切入点-,即执行通知的地点。 如UserServiceImpl的add方法就是个切入点&ndash;&gt;-->
+<!--            <aop:pointcut id="point" expression="execution(* com.zac.service.UserServiceImpl.*(..))"/>-->
+<!--            &lt;!&ndash;通知.即切面要执行的方法（advice），method指具体执行切面（DitPointcut类）的哪个方法，pointcut-ref输入aop:pointcut，指定切入点&ndash;&gt;-->
+<!--            <aop:before method="before" pointcut-ref="point"></aop:before>-->
+<!--            <aop:after method="after" pointcut-ref="point"></aop:after>-->
+<!--        </aop:aspect>-->
+<!--    </aop:config>-->
+
+    <!--方法三，注解-->
+    <bean id="annotationPointcut" class="com.zac.diy.AnnotationPointCut"/>
+    <!--annotation support-->
+    <aop:aspectj-autoproxy/>
+
+
+
+
+</beans>

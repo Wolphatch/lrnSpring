@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="sp07-JavaConfig" />
+        <module name="sp-09-aop" />
+        <module name="sp04-ioc-3" />
+        <module name="sp08-proxy" />
+        <module name="sp02-hellospring" />
+        <module name="sp05-autowire" />
+        <module name="sp01-ioc-1" />
+        <module name="sp03-ioc-2" />
+        <module name="sp06-annotation" />
+      </profile>
+    </annotationProcessing>
+  </component>
+</project>

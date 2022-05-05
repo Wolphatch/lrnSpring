@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="addr" class="com.zac.pojo.Address"></bean>
+
+    <bean id="stud1" class="com.zac.pojo.Student" scope="prototype">
+
+        <property name="name" value="zachu"></property>
+        <!--bean注入-->
+        <property name="address" ref="addr"></property>
+
+        <!--数组-->
+        <property name="books">
+            <array>
+                <value>book1</value>
+                <value>book2</value>
+                <value>book3</value>
+            </array>
+        </property>
+
+        <!---->
+        <property name="hobbies">
+            <list>
+                <value>hobbie1</value>
+                <value>hobbie2</value>
+                <value>hobbie3</value>
+            </list>
+        </property>
+
+        <property name="card">
+            <map>
+                <entry key="card1" value="cardv1"></entry>
+                <entry key="card2" value="cardv2"></entry>
+            </map>
+        </property>
+
+        <property name="games">
+            <set>
+                <value>g1</value>
+                <value>g2</value>
+                <value>g3</value>
+            </set>
+        </property>
+
+        <property name="wife" value=""></property>
+
+        <property name="info">
+            <props>
+                <prop key="info1">info1information</prop>
+                <prop key="info2">info2information</prop>
+                <prop key="info3">info3information</prop>
+            </props>
+        </property>
+
+
+
+
+
+    </bean>
+
+</beans>
